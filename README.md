@@ -32,14 +32,23 @@ This repository contains a demo application showcasing the integration of Apache
     ```bash
     helm install camel-helmet-demo . -f devt-values.yaml
     ```
+    Or apply the ApplicatioSet under argocd in argocd namespace with :
+    ```bash
+    kubectl apply -f argocd/application-set.yaml
+    ```
+
 
 5. Verify the deployment:
     ```bash
-    helm ls
+    kubectl get pod
     ```
 6. Uninstall the deployment:
     ```bash
     helm delete helmet-demo
+    ```
+    Or if you applied the ApplicationSet with in argocd namespace:
+    ```bash
+    kubectl delete -f argocd/application-set.yaml
     ```
 ## Usage
 

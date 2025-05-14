@@ -15,13 +15,13 @@ spec:
       namespace: argocd
     spec:
       project: default
-      sources:
-        - repoURL: https://github.com/rmortale/camel-helmet-demo.git
-          path: .
-          targetRevision: main
-          helm:
-            valueFiles:
-              - {{name}}-values.yaml
+      source:
+        repoURL: https://github.com/rmortale/camel-helmet-demo.git
+        path: .
+        targetRevision: main
+        helm:
+          valueFiles:
+            - '{{name}}-values.yaml'
       destination:
         server: '{{server}}'
         namespace: k8scc
