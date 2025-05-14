@@ -27,40 +27,24 @@ This repository contains a demo application showcasing the integration of Apache
     ```bash
     camel run --dev routes/demo.camel.yaml
     ```
-4. When finished with the development copy the route body into the `devt-values.yaml` file into the configMap.
 
+4. Deploy the application using Helm:
     ```bash
-    ...
-    configMap:
-      mounted: true
-      mountPath: /integrations
-      data:
-        demo.camel.yaml: |
-          - route:
-            from:
-              uri: timer:yaml
-              parameters:
-                period: "1000"
-              steps:
-                - setBody:
-                    simple: Hello Camel from ${routeId}
-                - log: ${body}
+    helm install camel-helmet-demo . -f devt-values.yaml
     ```
 
-2. Deploy the application using Helm:
+5. Verify the deployment:
     ```bash
-    helm install camel-helmet-demo ./helm-chart
+    helm ls
     ```
-
-3. Verify the deployment:
+6. Uninstall the deployment:
     ```bash
-    kubectl get pods
+    helm delete helmet-demo
     ```
-
 ## Usage
 
-- Modify the Camel routes in the `devt-values.yaml` file to suit your needs.
-- Add more values files for other kubernetes environment if needed.
+- Modify the Camel routes in the `routes` directory to suit your needs.
+- Add more values files for other kubernetes environments if needed.
 
 ## Contributing
 

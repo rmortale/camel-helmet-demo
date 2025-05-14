@@ -2,26 +2,18 @@ image:
   repository: apache/camel-jbang
   tag: 4.11.0
 
-
-
 args:
   - run
   - --console
   - --observe
   - /integrations/demo.camel.yaml
 
-configMap:
-  mounted: true
-  mountPath: /integrations
-  data:
-    demo.camel.yaml: |
-      - route:
-          from:
-            uri: timer:yaml
-            parameters:
-              period: "1000"
-            steps:
-              - setBody:
-                  simple: Hello Camel from ${routeId}
-              - log: ${body}
+extraVolumes:
+  - name: integrations
+    configMap:
+      name: camel-routes-cm
+     
+extraVolumeMounts:
+  - name: integrations
+    mountPath: /integrations
 
