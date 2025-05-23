@@ -32,7 +32,7 @@ This repository contains a demo application showcasing the integration of Apache
     ```bash
     helm install camel-helmet-demo . -f devt-values.yaml
     ```
-    Or apply the ApplicatioSet under argocd in argocd namespace with :
+    Or apply the ApplicationSet under argocd in argocd namespace with :
     ```bash
     kubectl apply -f argocd/application-set.yaml
     ```
