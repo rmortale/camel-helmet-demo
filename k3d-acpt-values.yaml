@@ -1,6 +1,5 @@
 image:
-  repository: apache/camel-jbang
-  tag: 4.11.0
+  tag: v1.0.1
 
 args:
   - run
