@@ -3,7 +3,6 @@ image:
 
 args:
   - run
-  - --console
   - --observe
   - /integrations/demo.camel.yaml
 
