@@ -3,5 +3,6 @@
 image:
   registry: ghcr.io
   repository: rmortale/jbang-camel-docker
+  tag: v1.0.1
   
   
